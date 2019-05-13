@@ -1,5 +1,5 @@
-# Guacamole with docker-compose
-This is a small documentation how to run a fully working **Apache Guacamole (incubating)** instance with docker (docker-compose). The goal of this project is to make it easy to test Guacamole.
+# Guacamole with docker-compose + 2-factor authentication
+This is a fork of original boschkundendienst/guacamole-docker-compose with small adjustion for adding "one time password extension", to run a fully working **Apache Guacamole (incubating)** instance with docker (docker-compose). The goal of this project is to make it easy to test Guacamole.
 
 ## About Guacamole
 Apache Guacamole (incubating) is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH. It is called clientless because no plugins or client software are required. Thanks to HTML5, once Guacamole is installed on a server, all you need to access your desktops is a web browser.
@@ -13,13 +13,16 @@ You need a working **docker** installation and **docker-compose** running on you
 Clone the GIT repository and start guacamole:
 
 ~~~bash
+apt-get install docker-ce
+apt-get install docker-compose
+
 git clone "https://github.com/boschkundendienst/guacamole-docker-compose.git"
 cd guacamole-docker-compose
 ./prepare.sh
 docker-compose up -d
 ~~~
 
-Your guacamole server should now be available at `https://ip of your server:8443/`. The default username is `guacadmin` with password `guacadmin`.
+Your guacamole server should now be available at `https://ip of your server:8443/`. The default username is `guacadmin` with password `guacadmin` - right after login with username and password, you will see a QR code with secrete key - to add 2 factor account in your google Authenticator app.
 
 ## Details
 To understand some details let's take a closer look at parts of the `docker-compose.yml` file:
