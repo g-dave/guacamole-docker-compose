@@ -8,14 +8,15 @@ It supports RDP, SSH, Telnet and VNC and is the fastest HTML5 gateway I know. Ch
 
 ## Prerequisites
 You need a working **docker** installation and **docker-compose** running on your machine.
+~~~bash
+apt-get install docker-ce
+apt-get install docker-compose
+~~~
 
 ## Quick start
 Clone the GIT repository and start guacamole:
 
 ~~~bash
-apt-get install docker-ce
-apt-get install docker-compose
-
 git clone "https://github.com/boschkundendienst/guacamole-docker-compose.git"
 cd guacamole-docker-compose
 ./prepare.sh
